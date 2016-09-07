@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbendaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/07 16:13:58 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/07 20:32:34 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	ft_pixel_put()
 	t_env	env;
 	int x;
 	int y;
+	void *tmp = env.mlx;
+	void *tmpwin = env.win;
+
 
 	y = 50;
 	while (y < 150)
@@ -61,9 +64,11 @@ void	ft_pixel_put()
 		x = 50;
 		while (x < 150)
 		{
-			mlx_pixel_put(env.mlx, env.win, x, y, BLUE);
+			printf("jusqu ici tout vas bien\n");
+			mlx_pixel_put(tmp, tmpwin, x, y, BLUE);
 			x++;
 		}
+		printf("rien\n");
 		y++;
 	}
 
@@ -84,8 +89,7 @@ int		main(int ac, char **av)
 	t_env	env;
 	if (ft_create() == 1)
 		return (1);
-	ft_putstr("wesh loop\n");
-	ft_pixel_put();
+		ft_pixel_put();
 	ft_putstr("ouais bof\n");
 	ft_loop();
 	ft_putstr("seg loop none"); 

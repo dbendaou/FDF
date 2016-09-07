@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbendaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/07 16:16:46 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/07 20:32:36 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ typedef struct	s_env
 #include <stdlib.h>
 #include "../libft/libft.h"
 //#include "get_next_line.h"
+#include <stdio.h>
 
 #endif

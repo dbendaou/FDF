@@ -6,20 +6,20 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 16:49:36 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/06 20:00:21 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/07 20:32:35 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <mlx.h>
-#include "test.h"
+
+#include "include/fdf.h"
 
 int		ft_key_funct(int keycode, void *mlx)
 {
 	t_env	_env;
 	printf("key event %d\n", keycode);
 	if (keycode == 53)
+	{
 		printf("Weshbolosse\n");
-	//mlx_pixel_put(_env.mlx, _env.win, 300, 300, 0xFF00FF);
+	}
 	return (1);
 }
 
@@ -37,7 +37,7 @@ int		main(int ac, char **av)
 		x = 50;
 		while (x < 150)
 		{
-			mlx_pixel_put(_env.mlx, _env.win, x, y, 0x00FF0000);
+			mlx_pixel_put(_env.mlx, _env.win, x, y, BLUE);
 			x++;
 		}
 		y++;
