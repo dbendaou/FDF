@@ -13,17 +13,17 @@
 NAME 		=	fdf
 
 SRC_PATH	=	srcs
-SRC_NAME	= 	fichier1.c \
-				fichier2.c
-
+SRC_NAME	= 	main.c \
+				
 
 OBJ_NAME	=	$(SRC_NAME:.c=.o)
 OBJ_PATH	=	objs
 
 CPPFLAGS	= 	-Iinclude
-CFLAGS 		=	-Wall -Wextra -Werror
+#CFLAGS 		=	-Wall -Wextra -Werror
 LDFLAGS		=	-Llibft
 LDLIBS		=	-lft
+MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit
 
 CC			=	clang
 
@@ -40,7 +40,7 @@ C_BLUE	=	"\033[34;1mCompiling"
 all 	:	$(NAME)
 
 $(NAME)	:	$(OBJ) libft/libft.a
-		@$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
+		@$(CC) $(LDFLAGS) $(LDLIBS) $(MLXFLAGS) $^ -o $@
 		@echo $(C_BLUE) $(C_WHIT) $(C_GOOD)
 
 libft/libft.a :

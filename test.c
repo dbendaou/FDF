@@ -37,7 +37,7 @@ int		main(int ac, char **av)
 		x = 50;
 		while (x < 150)
 		{
-			mlx_pixel_put(_env.mlx, _env.win, x, y, 0x00FFFFFF);
+			mlx_pixel_put(_env.mlx, _env.win, x, y, 0x00FF0000);
 			x++;
 		}
 		y++;
