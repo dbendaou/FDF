@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 18:01:05 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/03/04 19:51:23 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/11 20:40:24 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <stdio.h>
-# include "libft/libft.h"
 
 typedef struct	s_file
 {
