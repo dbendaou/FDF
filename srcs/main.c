@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/11 21:35:24 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/12 17:18:07 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,6 @@ void	ft_pixel_put()
 
 }
 
-/*t_map	ft_parse()
-{
-
-}*/
-
 void	ft_loop(t_env env)
 {
 	mlx_mouse_hook(env.win, ft_mouse_funct, env.mlx);
@@ -79,15 +74,6 @@ int		main(int ac, char **av)
 	t_env	env;
 	int i = 0;
 	char *tmp;
-	
-	// printf("%s\n", av[1]);
-	// tmp = read(av[1], O_RDONLY);
-	// while (tmp[i])
-	// {
-	// 	tmp[i] = read(0, &av[1][i], 15);
-	// 	i++;
-	// }
-	// printf("%s\n", tmp);
 	
 	env = *ft_create();
 	ft_pixel_put();
