@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/12 17:15:03 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/13 18:07:07 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ typedef struct s_map
 	struct s_map *next;
 }				t_map;
 
-# define	E_mlx_init 	"fails to set up the connection to the X server"
-# define	E_mlx_win	"mlx_new_window fails to create a new window"
-# define	E_open		"Open function fail to open the file"
+# define	E_mlx_init 	"fails to set up the connection to the X server\n"
+# define	E_mlx_win	"mlx_new_window fails to create a new window\n"
+# define	E_open		"Open function fail to open the file\n"
 
 /* fenetre */
 # define	TITLE		"FDF x 42"

@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/12 18:32:23 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/13 18:07:06 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,33 @@ void	ft_loop(t_env env)
 	mlx_loop(env.mlx);
 }
 
+char	ft_parser(char **buf)
+{
+	int 	i;
+	int 	nbytes;
+	char	**tmp;
+	int 	fd;
+
+	nbytes = 90;
+	i = 0;
+	if ((fd = open(*buf, O_RDONLY)) == -1)
+		ft_putstr(E_open);
+	while ((i = read(fd, &buf, nbytes) > 0))
+	{
+		printf("%s\n", &buf);
+	}
+
+	return (**tmp);
+}
+
+
 int		main(int ac, char **av)
 {
 	t_env	env;
 	int 	i = 0;
 	char 	*tmp;
-	int 	fd;
-
-	fd = open(av[1], O_RDONLY);
-	printf("%d\n", fd);
-	while ((i = read(fd, &tmp, 19) > 0))
-	{
-		printf("%s\n", &tmp);
-	}
+	
+	ft_parser(&av[1]);
 	env = ft_create();
 	ft_pixel_put();
 	ft_putstr("ouais bof\n");
