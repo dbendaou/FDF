@@ -73,14 +73,14 @@ char	ft_parser(char **buf)
 {
 	int 	i;
 	int 	nbytes;
-	char	**tmp;
+	char	*tmp;
 	int 	fd;
 
 	nbytes = 90;
 	i = 0;
 	if ((fd = open(*buf, O_RDONLY)) == -1)
 		ft_putstr(E_open);
-	while ((i = read(fd, &buf, nbytes) > 0))
+	while (get_next_line(fd, &tmp))
 	{
 		printf("%s\n", &buf);
 	}
