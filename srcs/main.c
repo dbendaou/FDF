@@ -82,10 +82,10 @@ char	ft_parser(char **buf)
 		ft_putstr(E_open);
 	while (get_next_line(fd, &tmp))
 	{
-		printf("%s\n", &buf);
+		printf("%s\n", tmp);
 	}
 
-	return (**tmp);
+	return (&tmp);
 }
 
 
