@@ -23,7 +23,7 @@ typedef struct	s_env
 
 typedef struct s_map
 {
-	int 		x;
+	int 		i;
 	int 		line;
 	int 		value;
 	struct s_map *next;
@@ -32,7 +32,7 @@ typedef struct s_map
 # define	E_mlx_init 	"fails to set up the connection to the X server\n"
 # define	E_mlx_win	"mlx_new_window fails to create a new window\n"
 # define	E_open		"Open function fail to open the file\n"
-
+# define	USAGE		"usage :\n ./fdf [maps]\n"
 /* fenetre */
 # define	TITLE		"FDF x 42"
 

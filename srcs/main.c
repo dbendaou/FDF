@@ -71,20 +71,28 @@ void	ft_loop(t_env env)
 
 char	ft_parser(char **buf)
 {
-	int 	i;
-	int 	nbytes;
-	char	*tmp;
+	t_map	map;
+	char 	*tmp;
+	char	**tab;
 	int 	fd;
+	int		x;
+	int		y;
+	int		z;
 
-	nbytes = 90;
-	i = 0;
 	if ((fd = open(*buf, O_RDONLY)) == -1)
 		ft_putstr(E_open);
+	y = 0;
 	while (get_next_line(fd, &tmp))
 	{
-		printf("%s\n", tmp);
+		z = 0;
+		x = 0;
+		while (tmp[x])
+		{
+			tab = ft_strsplit(&tmp[x], ' ');
+			x++;
+		}
 	}
-
+	printf("------------------\n");
 	return (&tmp);
 }
 
@@ -95,6 +103,11 @@ int		main(int ac, char **av)
 	int 	i = 0;
 	char 	*tmp;
 	
+	if (ac != 2)
+	{
+		ft_putstr(USAGE);
+		return (-1);
+	}
 	ft_parser(&av[1]);
 	env = ft_create();
 	ft_pixel_put();
