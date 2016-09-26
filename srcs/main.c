@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/13 18:09:52 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/26 20:59:35 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int 	ft_key_funct(int keycode)
 {
 	if (keycode == 53)
-	{
-		ft_putstr("Trying to exit.....\n");
 		exit (0);
-	}
 	return (0);
 }
 
@@ -42,24 +39,24 @@ t_env 	ft_create()
 void	ft_pixel_put()
 {
 	t_env	env;
-	int x;
-	int y;
-	void *tmp = env.mlx;
-	void *tmpwin = env.win;
-
-
+	int 	x;
+	int 	y;
+	
 	y = 50;
-	while (y < 150)
+	while (y < 55)
 	{
 		x = 50;
-		while (x < 150)
-		{
-			mlx_pixel_put(tmp, tmpwin, x, y, BLUE);
+		while (x < 350)
+		{	
+			mlx_pixel_put(env.mlx, env.win, x, y, RED);
+			mlx_pixel_put(env.mlx, env.win, x, y + 25, BLUE);
+			mlx_pixel_put(env.mlx, env.win, x, y + 50, GREEN);
+			mlx_pixel_put(env.mlx, env.win, x, y+75, YELLOW);
+			mlx_pixel_put(env.mlx, env.win, x, y+100, WHITE);
 			x++;
-		}
+	}
 		y++;
 	}
-
 }
 
 void	ft_loop(t_env env)
@@ -69,9 +66,10 @@ void	ft_loop(t_env env)
 	mlx_loop(env.mlx);
 }
 
-char	ft_parser(char **buf)
+void 	ft_parser(char **buf)
 {
-	t_map	map;
+	t_map	*map;
+	t_map	*begin;
 	char 	*tmp;
 	char	**tab;
 	int 	fd;
@@ -79,61 +77,62 @@ char	ft_parser(char **buf)
 	int		y;
 	int		z;
 
+
+	map = (t_map *)malloc(sizeof(t_map));
+	map->next = NULL;
+	begin = map;
 	if ((fd = open(*buf, O_RDONLY)) == -1)
 		ft_putstr(E_open);
 	y = 0;
+	z = 0;
 	while (get_next_line(fd, &tmp))
 	{
-		z = 0;
 		x = 0;
-		while (tmp[x])
+		tab = ft_strsplit(tmp, ' ');
+		while (tab[x])
 		{
-			tab = ft_strsplit(&tmp[x], ' ');
+			map->x = x;
+			map->line = y;
+			map->value = ft_atoi(tab[x]);
+			map->next = (t_map *)malloc(sizeof(t_map));
+			map = map->next;
+			map->next = NULL;
 			x++;
 		}
+		y++;
 	}
-	printf("------------------\n");
-	return (&tmp);
+	map = begin;
+	while (map)
+	{
+		int i = 0;
+		
+		ft_putnbr(map->value);
+		ft_putchar(' ');
+		if (i != map->line)
+		{
+			ft_putchar('\n');
+			i = map->line;
+		}
+		map = map->next;
+		
+	}
 }
-
 
 int		main(int ac, char **av)
 {
 	t_env	env;
+	t_map 	map;
 	int 	i = 0;
-	char 	*tmp;
 	
 	if (ac != 2)
 	{
-		ft_putstr(USAGE);
+		ft_putstr(E_usage);
 		return (-1);
 	}
 	ft_parser(&av[1]);
 	env = ft_create();
 	ft_pixel_put();
-	ft_putstr("ouais bof\n");
 	ft_loop(env);
 		
 	return (0);
 }
-/*
-int i;
-FILE *fp;
-int c;
-
-	fp = fopen(argv[i], "r");
-	if(fp == NULL)
-		{
-		fprintf(stderr, "cat: can't open %s\n", argv[i]);
-		continue;
-		}
-
-	while((c = getc(fp)) != EOF)
-		putchar(c);
-
-	fclose(fp);
-
-f=open(argv[1],O_RDONLY);
-while ((n=read(f,l,80)) > 0)
-    write(1,l,n);
-    */
