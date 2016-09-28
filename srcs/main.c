@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/26 20:59:35 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/28 17:58:52 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,17 @@ t_env 	ft_create()
 	env.win = mlx_new_window(env.mlx, env.width, env.height, TITLE);
 	return(env);
 }
-
+/*
 void	ft_pixel_put()
 {
 	t_env	env;
+	t_map	*map;
+	t_map	*begin;
 	int 	x;
 	int 	y;
 	
 	y = 50;
+		
 	while (y < 55)
 	{
 		x = 50;
@@ -51,12 +54,41 @@ void	ft_pixel_put()
 			mlx_pixel_put(env.mlx, env.win, x, y, RED);
 			mlx_pixel_put(env.mlx, env.win, x, y + 25, BLUE);
 			mlx_pixel_put(env.mlx, env.win, x, y + 50, GREEN);
-			mlx_pixel_put(env.mlx, env.win, x, y+75, YELLOW);
-			mlx_pixel_put(env.mlx, env.win, x, y+100, WHITE);
+			mlx_pixel_put(env.mlx, env.win, x, y + 75, YELLOW);
+			mlx_pixel_put(env.mlx, env.win, x, y + 100, WHITE);
 			x++;
-	}
+		}
 		y++;
 	}
+}*/
+
+void	ft_pixel_put()
+{
+	t_env	env;
+	t_map	*map;
+	t_map	*begin;
+	int x = 10;
+	int y = 10;
+	begin = map;
+	map = map->next;
+	while (map != begin)
+	{
+		if (map->value != 0)
+		{
+			mlx_pixel_put(env.mlx, env.win, x, y, RED);
+			mlx_pixel_put(env.mlx, env.win, x+1, y, RED);
+		}
+		else 
+		{
+			mlx_pixel_put(env.mlx, env.win, x, y, WHITE);
+			mlx_pixel_put(env.mlx, env.win, x+1, y, WHITE);
+		}
+		x = x+2;
+		y++;
+
+
+	}
+	
 }
 
 void	ft_loop(t_env env)
@@ -75,8 +107,6 @@ void 	ft_parser(char **buf)
 	int 	fd;
 	int		x;
 	int		y;
-	int		z;
-
 
 	map = (t_map *)malloc(sizeof(t_map));
 	map->next = NULL;
@@ -84,7 +114,6 @@ void 	ft_parser(char **buf)
 	if ((fd = open(*buf, O_RDONLY)) == -1)
 		ft_putstr(E_open);
 	y = 0;
-	z = 0;
 	while (get_next_line(fd, &tmp))
 	{
 		x = 0;
@@ -102,19 +131,17 @@ void 	ft_parser(char **buf)
 		y++;
 	}
 	map = begin;
+	int i = 0;
 	while (map)
 	{
-		int i = 0;
-		
-		ft_putnbr(map->value);
-		ft_putchar(' ');
+		ft_putnbr(map->x);
+		ft_putstr("  ");
 		if (i != map->line)
 		{
 			ft_putchar('\n');
 			i = map->line;
 		}
-		map = map->next;
-		
+	map = map->next;
 	}
 }
 
