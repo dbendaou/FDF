@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/29 19:37:10 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/29 20:03:31 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,48 +29,47 @@ t_env 	ft_create()
 {
 	t_env	env;
 
-	env.height = 420;
-	env.width = 420;
+	env.height = 1000;
+	env.width = 1000;
 	env.mlx = mlx_init();
 	env.win = mlx_new_window(env.mlx, env.width, env.height, TITLE);
 	return(env);
 }
 
-void	ft_pixel_put(t_map *map, t_env env)
+int 	ft_color(int value)
+{
+	if (value >= 0 && value < 10)
+		return (WHITE);
+	if (value >= 10 && value < 35)
+		return (YELLOW);
+	if (value >= 35 && value < 100)
+		return (RED);
+	else
+		return (BLUE);
+}
+
+void	ft_fdf(t_map *map, t_env env)
 {
 	int i;
 	int line = 0;
-	int x = 10;
-	int y = 10;
+	int x = 500;
+	int y = 500;
 	while (map)
 	{
 		i = 0;
 		if (line != map->line)
 		{
-			y = y+ 8;
-			x = 10;
+			y = y + 8;
+			x = 500;
 			line = map->line;
 		}
-		if (map->value != 0)
-		{
-			while (i <= 10)
+		while (i <= 10)
 			{
-				mlx_pixel_put(env.mlx, env.win, x, y, RED);
-				mlx_pixel_put(env.mlx, env.win, x, y+1, RED);
+				mlx_pixel_put(env.mlx, env.win, x, y, ft_color(map->value));
 				x++;
 				i++;
 			}
-		}
-		else
-		{
-			while (i <= 10)
-			{
-				mlx_pixel_put(env.mlx, env.win, x, y, WHITE);
-				mlx_pixel_put(env.mlx, env.win, x, y+1, WHITE);
-				x++;
-				i++;			
-			}
-		}
+				
 		x = x+ 4;
 		map = map->next;
 	}
@@ -144,7 +143,7 @@ int		main(int ac, char **av)
 	}
 	map = ft_parser(&av[1]);
 	env = ft_create();
-	ft_pixel_put(map, env);
+	ft_fdf(map, env);
 	ft_loop(env);
 		
 	return (0);
