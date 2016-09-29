@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/29 18:14:03 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/29 19:37:10 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,40 @@ t_env 	ft_create()
 
 void	ft_pixel_put(t_map *map, t_env env)
 {
+	int i;
 	int line = 0;
 	int x = 10;
 	int y = 10;
 	while (map)
 	{
+		i = 0;
 		if (line != map->line)
 		{
-			y = y + 2;
+			y = y+ 8;
 			x = 10;
 			line = map->line;
 		}
 		if (map->value != 0)
 		{
-			mlx_pixel_put(env.mlx, env.win, x, y, RED);
+			while (i <= 10)
+			{
+				mlx_pixel_put(env.mlx, env.win, x, y, RED);
+				mlx_pixel_put(env.mlx, env.win, x, y+1, RED);
+				x++;
+				i++;
+			}
 		}
 		else
 		{
-			mlx_pixel_put(env.mlx, env.win, x, y, WHITE);	
+			while (i <= 10)
+			{
+				mlx_pixel_put(env.mlx, env.win, x, y, WHITE);
+				mlx_pixel_put(env.mlx, env.win, x, y+1, WHITE);
+				x++;
+				i++;			
+			}
 		}
-		x++;
+		x = x+ 4;
 		map = map->next;
 	}
 		
