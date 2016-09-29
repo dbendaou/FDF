@@ -20,6 +20,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <stdio.h>
+# include "fdf.h"
 
 typedef struct	s_file
 {

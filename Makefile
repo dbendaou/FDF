@@ -14,6 +14,7 @@ NAME 		=	fdf
 
 SRC_PATH	=	srcs
 SRC_NAME	= 	main.c \
+				get_next_line.c
 				
 
 OBJ_NAME	=	$(SRC_NAME:.c=.o)
