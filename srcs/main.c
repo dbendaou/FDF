@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/28 17:58:52 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/09/29 18:14:03 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,59 +35,32 @@ t_env 	ft_create()
 	env.win = mlx_new_window(env.mlx, env.width, env.height, TITLE);
 	return(env);
 }
-/*
-void	ft_pixel_put()
-{
-	t_env	env;
-	t_map	*map;
-	t_map	*begin;
-	int 	x;
-	int 	y;
-	
-	y = 50;
-		
-	while (y < 55)
-	{
-		x = 50;
-		while (x < 350)
-		{	
-			mlx_pixel_put(env.mlx, env.win, x, y, RED);
-			mlx_pixel_put(env.mlx, env.win, x, y + 25, BLUE);
-			mlx_pixel_put(env.mlx, env.win, x, y + 50, GREEN);
-			mlx_pixel_put(env.mlx, env.win, x, y + 75, YELLOW);
-			mlx_pixel_put(env.mlx, env.win, x, y + 100, WHITE);
-			x++;
-		}
-		y++;
-	}
-}*/
 
-void	ft_pixel_put()
+void	ft_pixel_put(t_map *map, t_env env)
 {
-	t_env	env;
-	t_map	*map;
-	t_map	*begin;
+	int line = 0;
 	int x = 10;
 	int y = 10;
-	begin = map;
-	map = map->next;
-	while (map != begin)
+	while (map)
 	{
+		if (line != map->line)
+		{
+			y = y + 2;
+			x = 10;
+			line = map->line;
+		}
 		if (map->value != 0)
 		{
 			mlx_pixel_put(env.mlx, env.win, x, y, RED);
-			mlx_pixel_put(env.mlx, env.win, x+1, y, RED);
 		}
-		else 
+		else
 		{
-			mlx_pixel_put(env.mlx, env.win, x, y, WHITE);
-			mlx_pixel_put(env.mlx, env.win, x+1, y, WHITE);
+			mlx_pixel_put(env.mlx, env.win, x, y, WHITE);	
 		}
-		x = x+2;
-		y++;
-
-
+		x++;
+		map = map->next;
 	}
+		
 	
 }
 
@@ -98,7 +71,7 @@ void	ft_loop(t_env env)
 	mlx_loop(env.mlx);
 }
 
-void 	ft_parser(char **buf)
+t_map 	*ft_parser(char **buf)
 {
 	t_map	*map;
 	t_map	*begin;
@@ -120,35 +93,34 @@ void 	ft_parser(char **buf)
 		tab = ft_strsplit(tmp, ' ');
 		while (tab[x])
 		{
-			map->x = x;
-			map->line = y;
-			map->value = ft_atoi(tab[x]);
-			map->next = (t_map *)malloc(sizeof(t_map));
-			map = map->next;
-			map->next = NULL;
+
+			if (map == begin && x == 0)
+			{
+				map->x = x;
+				map->line = y;
+				map->value = ft_atoi(tab[x]);
+				map->next = NULL;
+			}
+			else
+			{
+				map->next = (t_map *)malloc(sizeof(t_map));
+				map = map->next;
+				map->next = NULL;
+				map->x = x;
+				map->line = y;
+				map->value = ft_atoi(tab[x]);
+			}
 			x++;
 		}
 		y++;
 	}
-	map = begin;
-	int i = 0;
-	while (map)
-	{
-		ft_putnbr(map->x);
-		ft_putstr("  ");
-		if (i != map->line)
-		{
-			ft_putchar('\n');
-			i = map->line;
-		}
-	map = map->next;
-	}
+	return (begin);
 }
 
 int		main(int ac, char **av)
 {
 	t_env	env;
-	t_map 	map;
+	t_map 	*map;
 	int 	i = 0;
 	
 	if (ac != 2)
@@ -156,9 +128,9 @@ int		main(int ac, char **av)
 		ft_putstr(E_usage);
 		return (-1);
 	}
-	ft_parser(&av[1]);
+	map = ft_parser(&av[1]);
 	env = ft_create();
-	ft_pixel_put();
+	ft_pixel_put(map, env);
 	ft_loop(env);
 		
 	return (0);
