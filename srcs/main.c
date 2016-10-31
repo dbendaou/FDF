@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/09/29 22:46:13 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/10/31 16:58:37 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ t_map 	*ft_parser(char **buf)
 	map->next = NULL;
 	begin = map;
 	if ((fd = open(*buf, O_RDONLY)) == -1)
-		ft_putstr(E_open);
+		ft_putstr(E_OPEN);
 	y = 0;
 	while (get_next_line(fd, &tmp))
 	{
@@ -137,7 +137,7 @@ int		main(int ac, char **av)
 	
 	if (ac != 2)
 	{
-		ft_putstr(E_usage);
+		ft_putstr(E_USAGE);
 		return (-1);
 	}
 	map = ft_parser(&av[1]);
