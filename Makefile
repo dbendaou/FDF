@@ -6,7 +6,7 @@
 #    By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 16:16:05 by dbendaou          #+#    #+#              #
-#    Updated: 2016/09/07 20:32:37 by dbendaou         ###   ########.fr        #
+#    Updated: 2016/11/01 20:28:37 by dbendaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME 		=	fdf
 
 SRC_PATH	=	srcs
 SRC_NAME	= 	main.c \
+				parser.c \
+				iso.c \
 				get_next_line.c
 				
 

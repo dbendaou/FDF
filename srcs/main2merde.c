@@ -6,29 +6,11 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/01 17:35:03 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/10/31 16:58:37 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int		main(int ac, char **av)
-{
-	t_env	env;
-	t_map 	*map;
-	
-	if (ac != 2)
-	{
-		ft_putstr(E_USAGE);
-		return (-1);
-	}
-	map = ft_parser(&av[1]);
-	env = ft_create();
-	ft_pixel_put(map, env);
-	ft_loop(env);
-		
-	return (0);
-}
 
 int 	ft_key_funct(int keycode)
 {
@@ -90,6 +72,8 @@ void	ft_pixel_put(t_map *map, t_env env)
 		x = x+ 4;
 		map = map->next;
 	}
+		
+	
 }
 
 void	ft_loop(t_env env)
@@ -98,7 +82,7 @@ void	ft_loop(t_env env)
 	mlx_key_hook(env.win, ft_key_funct, env.mlx);
 	mlx_loop(env.mlx);
 }
-/*
+
 t_map 	*ft_parser(char **buf)
 {
 	t_map	*map;
@@ -124,17 +108,13 @@ t_map 	*ft_parser(char **buf)
 
 			if (map == begin && x == 0)
 			{
-				map = ft_map1(x, y, tab);
-				printf("fooo\n");
-				// map->x = x;
-				// map->line = y;
-				// map->value = ft_atoi(tab[x]);
-				// map->next = NULL;
+				map->x = x;
+				map->line = y;
+				map->value = ft_atoi(tab[x]);
+				map->next = NULL;
 			}
 			else
 			{
-				// map = ft_map2(x, y, tab);
-				printf("OKLMMMMMM\n");
 				map->next = (t_map *)malloc(sizeof(t_map));
 				map = map->next;
 				map->next = NULL;
@@ -147,4 +127,23 @@ t_map 	*ft_parser(char **buf)
 		y++;
 	}
 	return (begin);
-}*/
+}
+
+int		main(int ac, char **av)
+{
+	t_env	env;
+	t_map 	*map;
+	int 	i = 0;
+	
+	if (ac != 2)
+	{
+		ft_putstr(E_USAGE);
+		return (-1);
+	}
+	map = ft_parser(&av[1]);
+	env = ft_create();
+	ft_pixel_put(map, env);
+	ft_loop(env);
+		
+	return (0);
+}
