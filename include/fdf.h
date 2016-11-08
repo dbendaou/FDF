@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/01 20:28:10 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/08 18:14:40 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,10 @@ typedef struct			s_map
 /*
 **	Parser.c
 */
-int			ft_open(char **buf);
 t_map		*ft_parser(char **buf);
 t_map		*ft_map(char **tab, t_map *map, t_map *begin);
 void		ft_map1(int x, int y, char **tab, t_map *map);
-void		ft_map2(int x, int y, char **tab, t_map *map);
+t_map		*ft_map2(int x, int y, char **tab);
 
 /*
 **	iso.c
@@ -95,11 +94,15 @@ int 		get_echelle(t_map *map);
 int 		get_max_size(t_map *map);
 int 		list_len(t_map *map);
 
+/*
+**	mlx.c
+*/
 int 		ft_key_funct(int keycode);
-int 		ft_mouse_funct(int button, int x, int y, void *param);
+void		ft_loop(t_env env);
 t_env		ft_create();
 int 		ft_color(int value);
+
 void		ft_pixel_put(t_map *map, t_env env);
-void		ft_loop(t_env env);
+int 		ft_mouse_funct(int button, int x, int y, void *param);
 
 #endif
