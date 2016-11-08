@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/08 18:54:10 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/08 19:21:56 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		main(int ac, char **av)
 	t_env	env;
 	t_map 	*map;
 	
-	if (ac != 2)
+	if (ac != 2 || !ft_strstr(av[1], ".fdf"))
 	{
 		ft_putstr(E_USAGE);
 		return (-1);

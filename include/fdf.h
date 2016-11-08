@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/08 18:14:40 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/08 21:14:55 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@
 # define E_MLX_INIT 	"fails to set up the connection to the X server\n"
 # define E_MLX_WIN		"mlx_new_window fails to create a new window\n"
 # define E_OPEN			"Open function fail to open the file\n"
-# define E_USAGE		"usage :\n ./fdf [maps]\n"
+# define E_USAGE		"usage :\n ./fdf [maps.fdf]\n"
 # define E_FILE			"The file dosn't exist or you don't have the right\n"
-
+# define E_MAP			"The map is not valid\n"
 /*
 ** Titre de la fenetre
 */
@@ -101,6 +101,11 @@ int 		ft_key_funct(int keycode);
 void		ft_loop(t_env env);
 t_env		ft_create();
 int 		ft_color(int value);
+
+/*
+**	check.c
+*/
+int			ft_check(char *file, int count);
 
 void		ft_pixel_put(t_map *map, t_env env);
 int 		ft_mouse_funct(int button, int x, int y, void *param);
