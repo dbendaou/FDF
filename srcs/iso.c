@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 20:05:33 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/08 18:56:04 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/10 17:15:50 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ void	isometric(t_map *map)
 	while (tmp)
 	{
 		tmp->x3 = 1000 + size * (CTE_1 * tmp->x - CTE_2 * tmp->line);
-		printf("X3=====%d\n", tmp->x3);
+		printf("X3==%d\n", tmp->x3);
 		tmp->y3 = 450 + size * \
 		(tmp->value + CTE_1 / 2 * tmp->x + CTE_2 / 2 * tmp->line);
+		printf("Y3==%d\n", tmp->y3);
 		tmp = tmp->next;
 	}
 }
 
 /*
-** Definit l'echelle
+** Definit le zoom
 */
 
 int		get_echelle(t_map *map)

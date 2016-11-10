@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/08 21:14:55 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/10 18:37:48 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define E_USAGE		"usage :\n ./fdf [maps.fdf]\n"
 # define E_FILE			"The file dosn't exist or you don't have the right\n"
 # define E_MAP			"The map is not valid\n"
+
 /*
 ** Titre de la fenetre
 */
@@ -63,8 +64,8 @@ typedef struct			s_env
 {
 	void				*win;
 	void				*mlx;
-	int					height;		/*hauteur*/
-	int					width;		/*largeur*/
+	int					height;
+	int					width;
 }						t_env;
 
 typedef struct			s_map
@@ -73,41 +74,41 @@ typedef struct			s_map
 	int					line;
 	int					value;
 
-	int 				x3;
-	int 				y3;
+	int					x3;
+	int					y3;
 	struct s_map		*next;
 }						t_map;
 
 /*
 **	Parser.c
 */
-t_map		*ft_parser(char **buf);
-t_map		*ft_map(char **tab, t_map *map, t_map *begin);
-void		ft_map1(int x, int y, char **tab, t_map *map);
-t_map		*ft_map2(int x, int y, char **tab);
+t_map					*ft_parser(char **buf);
+t_map					*ft_map(char **tab, t_map *map, t_map *begin);
+void					ft_map1(int x, int y, char **tab, t_map *map);
+t_map					*ft_map2(int x, int y, char **tab);
 
 /*
 **	iso.c
 */
-void		isometric(t_map *map);
-int 		get_echelle(t_map *map);
-int 		get_max_size(t_map *map);
-int 		list_len(t_map *map);
+void					isometric(t_map *map);
+int						get_echelle(t_map *map);
+int						get_max_size(t_map *map);
+int						list_len(t_map *map);
 
 /*
 **	mlx.c
 */
-int 		ft_key_funct(int keycode);
-void		ft_loop(t_env env);
-t_env		ft_create();
-int 		ft_color(int value);
+int						ft_key_funct(int keycode);
+void					ft_loop(t_env env);
+t_env					ft_create(void);
+int						ft_color(int value);
 
 /*
 **	check.c
 */
-int			ft_check(char *file, int count);
+void					ft_check(char *file);
 
-void		ft_pixel_put(t_map *map, t_env env);
-int 		ft_mouse_funct(int button, int x, int y, void *param);
+void					ft_pixel_put(t_map *map, t_env env);
+int						ft_mouse_funct(int button, int x, int y, void *param);
 
 #endif

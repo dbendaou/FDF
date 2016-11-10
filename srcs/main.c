@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/08 19:21:56 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/10 18:38:38 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_pixel_put(t_map *map, t_env env)
 		i = 0;
 		if (line != map->line)
 		{
-			y = y+ 8;
+			y = y+ get_echelle(map);
 			x = 450;
 			line = map->line;
 		}
@@ -60,7 +60,7 @@ void	ft_pixel_put(t_map *map, t_env env)
 				x++;
 				i++;
 			}
-		x = x+ 4;
+		x = x+ (get_echelle(map) / 2);
 		map = map->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 17:03:08 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/08 21:11:16 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/10 16:57:53 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ void	run_map(int fd, char *tmp, t_map *begin, t_map *map)
 	int		x;
 	int		y;
 	char	**tab;
-	int		count;
 
-	count = 0;
 	y = 0;
 	while (get_next_line(fd, &tmp))
 	{
-		ft_check(tmp, count);
+		ft_check(tmp);
 		x = 0;
 		tab = ft_strsplit(tmp, ' ');
 		while (tab[x])

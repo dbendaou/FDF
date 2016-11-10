@@ -6,11 +6,15 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 19:24:03 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/08 21:20:41 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/10 18:34:01 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+/*
+**	Verifie si la map contient uniquement des chiffres, espace ou '-'
+*/
 
 void	ft_check(char *line)
 {
@@ -19,12 +23,12 @@ void	ft_check(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if ((line[i] >= 48 && line[i] <= 57 )|| line[i] == 45 || line[i] == 32)
+		if ((line[i] >= 48 && line[i] <= 57) || line[i] == 45 || line[i] == 32)
 			i++;
 		else
 		{
 			ft_putstr(E_MAP);
-			exit (0);
+			exit(0);
 		}
 	}
 }
