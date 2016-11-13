@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 17:03:08 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/10 16:57:53 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/13 21:15:51 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ t_map	*ft_parser(char **buf)
 
 	tmp = NULL;
 	fd = open(*buf, O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr(E_FILE);
+		exit(-1);
+	}
 	map = (t_map *)malloc(sizeof(t_map));
 	map->next = NULL;
 	begin = map;

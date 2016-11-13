@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/10 18:37:48 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/13 21:17:10 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@
 **	Erreurs
 */
 # define E_MLX_INIT 	"fails to set up the connection to the X server\n"
-# define E_MLX_WIN		"mlx_new_window fails to create a new window\n"
+# define E_MLX_WIN		"mlx_new_window fails to create a window\n"
 # define E_OPEN			"Open function fail to open the file\n"
 # define E_USAGE		"usage :\n ./fdf [maps.fdf]\n"
-# define E_FILE			"The file dosn't exist or you don't have the right\n"
+# define E_FILE			"The file doesn't exist or you don't have the right\n"
 # define E_MAP			"The map is not valid\n"
 
 /*
-** Titre de la fenetre
+** Fenetre
 */
 # define TITLE			"FDF x 42"
+# define WIDTH			2000
+# define HEIGHT			2000
 
 /*
 **	Couleurs
@@ -64,8 +66,12 @@ typedef struct			s_env
 {
 	void				*win;
 	void				*mlx;
-	int					height;
-	int					width;
+	void				*image;
+	char				*addr;
+	int 				bits_per_pixel;
+	int 				size_line;
+	int 				endian;
+	
 }						t_env;
 
 typedef struct			s_map

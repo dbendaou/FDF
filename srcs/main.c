@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/10 18:38:38 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/13 21:09:02 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void	ft_pixel_put(t_map *map, t_env env)
 			line = map->line;
 		}
 		while (i <= 10)
-			{
+		{
 				mlx_pixel_put(env.mlx, env.win, x, y, ft_color(map->value));
 				x++;
 				i++;
-			}
+		}
 		x = x+ (get_echelle(map) / 2);
 		map = map->next;
 	}
