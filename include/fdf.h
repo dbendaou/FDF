@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/13 21:17:10 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/13 21:21:44 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,9 @@ typedef struct			s_env
 	void				*mlx;
 	void				*image;
 	char				*addr;
-	int 				bits_per_pixel;
-	int 				size_line;
-	int 				endian;
-	
+	int					bits_per_pixel;
+	int					size_line;
+	int					endian;
 }						t_env;
 
 typedef struct			s_map
@@ -113,6 +112,10 @@ int						ft_color(int value);
 **	check.c
 */
 void					ft_check(char *file);
+
+/*
+**	draw.c
+*/
 
 void					ft_pixel_put(t_map *map, t_env env);
 int						ft_mouse_funct(int button, int x, int y, void *param);
