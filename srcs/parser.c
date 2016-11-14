@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 17:03:08 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/13 21:15:51 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/14 03:55:27 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_map1(int x, int y, char **tab, t_map *map)
 {
 	map->x = x;
 	map->line = y;
-	map->value = ft_atoi(tab[x]);
+	map->value = -ft_atoi(tab[x]);
 	map->next = NULL;
 }
 
@@ -92,6 +92,6 @@ t_map	*ft_map2(int x, int y, char **tab)
 	tmp->next = NULL;
 	tmp->x = x;
 	tmp->line = y;
-	tmp->value = ft_atoi(tab[x]);
+	tmp->value = -ft_atoi(tab[x]);
 	return (tmp);
 }

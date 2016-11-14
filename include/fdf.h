@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 01:25:22 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/14 05:58:52 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,27 @@
 /*
 **	Couleurs
 */
-# define WHITE 			0xff
+# define WHITE 			0x00FFFFFF
 # define RED 			0x00FF0000
 # define BLUE 			0x000000FF
 # define GREEN			0x0000FF00
 # define YELLOW 		0x00FFFF00
+
+/*
+**	Pour une lecture plus simple de trace.c
+*/
+# define X 				tmp->x
+# define Y 				tmp->y
+# define TP 			tmp->tp
+# define DX 			tmp->dx
+# define DY 			tmp->dy
+# define DELTAE 		tmp->deltaE
+# define DELTANE 		tmp->deltaNE
+# define DP 			tmp->dp
+# define X0 			map1->x3
+# define X1 			map2->x3
+# define Y0 			map1->y3
+# define Y1 			map2->y3
 
 /*
 **	Structure
@@ -84,6 +100,23 @@ typedef struct			s_map
 	struct s_map		*next;
 }						t_map;
 
+typedef struct			s_tmp
+{
+	int 				x;
+	int 				y;
+	int 				tp;
+	int 				dx;
+	int 				dy;
+	int 				deltaE;
+	int 				deltaNE;
+	int 				dp;
+}						t_tmp;
+
+void	myseg_trace(t_map *map1, t_map *map2, t_env *env);
+void 	ft_cas1(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
+void 	ft_cas2(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
+void 	ft_cas3(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
+void 	ft_cas4(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
 
 /*
 **	Parser.c
@@ -118,9 +151,7 @@ void					ft_check(char *file);
 **	draw.c
 */
 void					trace(t_map *begin, t_env *env);
-void					draw_seg(t_map *map1, t_map *map2, t_env *env);
-void					draw1(t_map *map1, t_map *map2, t_env *env);
-void					draw2(t_map *map1, t_map *map2, t_env *env);
+void					ft_init(t_map *map1, t_map *map2, t_tmp *tmp);
 
 void					ft_pixel_put(t_map *map, t_env env);
 int						ft_mouse_funct(int button, int x, int y, void *param);
