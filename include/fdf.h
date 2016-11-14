@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/13 21:21:44 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/14 01:25:22 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 /*
 **	Couleurs
 */
-# define WHITE 			0x00FFFFFF
+# define WHITE 			0xff
 # define RED 			0x00FF0000
 # define BLUE 			0x000000FF
 # define GREEN			0x0000FF00
@@ -84,6 +84,7 @@ typedef struct			s_map
 	struct s_map		*next;
 }						t_map;
 
+
 /*
 **	Parser.c
 */
@@ -105,7 +106,7 @@ int						list_len(t_map *map);
 */
 int						ft_key_funct(int keycode);
 void					ft_loop(t_env env);
-t_env					ft_create(void);
+t_env					*ft_create(void);
 int						ft_color(int value);
 
 /*
@@ -116,6 +117,10 @@ void					ft_check(char *file);
 /*
 **	draw.c
 */
+void					trace(t_map *begin, t_env *env);
+void					draw_seg(t_map *map1, t_map *map2, t_env *env);
+void					draw1(t_map *map1, t_map *map2, t_env *env);
+void					draw2(t_map *map1, t_map *map2, t_env *env);
 
 void					ft_pixel_put(t_map *map, t_env env);
 int						ft_mouse_funct(int button, int x, int y, void *param);

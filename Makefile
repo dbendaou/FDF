@@ -6,7 +6,7 @@
 #    By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 16:16:05 by dbendaou          #+#    #+#              #
-#    Updated: 2016/11/08 20:43:46 by dbendaou         ###   ########.fr        #
+#    Updated: 2016/11/14 00:46:17 by dbendaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC_NAME	= 	main.c \
 				iso.c \
 				mlx.c \
 				check.c \
+				draw.c \
 				get_next_line.c
 				
 
