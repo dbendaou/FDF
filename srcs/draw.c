@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 19:49:10 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 05:59:29 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/15 17:08:49 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	trace(t_map *begin, t_env *env)
 		map2 = begin;
 		while (map2)
 		{
-			if (map1 != map2)
+			if (map2 != map1)
 			{
 				if (map1->x == map2->x)
 				{

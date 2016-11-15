@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 05:58:52 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/15 16:06:29 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,6 @@ typedef struct			s_env
 {
 	void				*win;
 	void				*mlx;
-	void				*image;
-	char				*addr;
-	int					bits_per_pixel;
-	int					size_line;
-	int					endian;
 }						t_env;
 
 typedef struct			s_map

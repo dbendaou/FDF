@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 03:58:43 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 05:59:01 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/15 17:11:05 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ void	myseg_trace(t_map *map1, t_map *map2, t_env *env)
 
 	tmp = (t_tmp *)malloc(sizeof(t_tmp));
 	ft_init(map1, map2, tmp);
+	// if (Y0 > Y1)
+	// {
+	// 	TP = X0;
+	// 	X0 = X1;
+	// 	X1 = TP;
+	// 	TP = Y0;
+	// 	Y0 = Y1;
+	// 	Y1 = TP;
+	// }
+	// DX = (X1 >= X0) ? X1 - X0 : X0 - X1;
+	// DY = Y1 - Y0;
 	if (X1 >= X0)
 	{
 		if (DX >= DY)
@@ -32,12 +43,13 @@ void	myseg_trace(t_map *map1, t_map *map2, t_env *env)
 		else
 			ft_cas4(map1, map2, tmp, env);
 	}
+	free(tmp);
 }
 
 void 	ft_cas1(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env)
 {
 	DP = 2 * DY - DX;
-	DELTAE = 2 * DX;
+	DELTAE = 2 * DY;
 	DELTANE = 2 * (DY - DX);
 	X = X0;
 	Y = Y0;
