@@ -6,29 +6,18 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 03:58:43 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/15 17:11:05 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/15 23:29:07 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
+/*
 void	myseg_trace(t_map *map1, t_map *map2, t_env *env)
 {
 	t_tmp *tmp;
-
+	
 	tmp = (t_tmp *)malloc(sizeof(t_tmp));
 	ft_init(map1, map2, tmp);
-	// if (Y0 > Y1)
-	// {
-	// 	TP = X0;
-	// 	X0 = X1;
-	// 	X1 = TP;
-	// 	TP = Y0;
-	// 	Y0 = Y1;
-	// 	Y1 = TP;
-	// }
-	// DX = (X1 >= X0) ? X1 - X0 : X0 - X1;
-	// DY = Y1 - Y0;
 	if (X1 >= X0)
 	{
 		if (DX >= DY)
@@ -145,3 +134,4 @@ void	ft_cas4(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env)
 		mlx_pixel_put(env->mlx, env->win, X, Y, WHITE);
 	}
 }
+*/
