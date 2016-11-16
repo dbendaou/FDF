@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 19:49:10 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 20:12:19 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 20:18:59 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ void	trace(t_map *begin, t_env *env)
 				{
 					if ((map1->line == map2->line + 1) || (map1->line == map2->line -1))
 					{
-						tab[0] = map1->x3;
-						tab[1] = map2->x3;
-						tab[2] = map1->y3;
-						tab[3] = map1->y3;
-						myseg_trace1(map1->x3, map2->x3, map1->y3, map2->y3, env);
+						myseg_trace(map1->x3, map2->x3, map1->y3, map2->y3, env);
 						// myseg_trace(map1, map2, env);
 					}
 				}
@@ -41,11 +37,7 @@ void	trace(t_map *begin, t_env *env)
 				{
 					if ((map1->x == map2->x + 1) || (map1->x == map2->x -1))
 					{
-						tab[0] = map1->x3;
-						tab[1] = map2->x3;
-						tab[2] = map1->y3;
-						tab[3] = map1->y3;
-						myseg_trace1(map1->x3, map2->x3, map1->y3, map2->y3, env);
+						myseg_trace(map1->x3, map2->x3, map1->y3, map2->y3, env);
 						// myseg_trace(map1, map2, env);
 					}
 				}
@@ -59,8 +51,8 @@ void	trace(t_map *begin, t_env *env)
 }
 
 
-/*
-void	ft_init(t_map *map1, t_map *map2, t_tmp *tmp)
+
+void	ft_init(int X0, int X1, int Y0, int Y1, t_tmp *tmp)
 {
 	if (Y0 > Y1)
 	{
@@ -74,5 +66,4 @@ void	ft_init(t_map *map1, t_map *map2, t_tmp *tmp)
 	DX = (X1 >= X0) ? X1 - X0 : X0 - X1;
 	DY = Y1 - Y0;
 }
-*/
 //map1->x3, map1->y3, map2->x3, map2->y3

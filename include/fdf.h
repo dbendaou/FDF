@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 20:07:31 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 20:16:57 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,11 @@ void	myseg_trace1(int X0, int X1, int Y0, int Y1, t_env *env);
 /*
 **	trace.c
 */
-void	myseg_trace(t_map *map1, t_map *map2, t_env *env);
-void 	ft_cas1(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
-void 	ft_cas2(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
-void 	ft_cas3(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
-void 	ft_cas4(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
+void	myseg_trace(int X0, int X1, int Y0, int Y1, t_env *env);
+void 	ft_cas1(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
+void 	ft_cas2(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
+void 	ft_cas3(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
+void 	ft_cas4(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
 
 /*
 **	Parser.c
@@ -156,7 +156,7 @@ void					ft_check(char *file);
 **	draw.c
 */
 void					trace(t_map *begin, t_env *env);
-void					ft_init(t_map *map1, t_map *map2, t_tmp *tmp);
+void					ft_init(int X0, int X1, int Y0, int Y1, t_tmp *tmp);
 
 void					ft_pixel_put(t_map *map, t_env env);
 int						ft_mouse_funct(int button, int x, int y, void *param);
