@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/15 23:27:58 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 19:46:24 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,12 @@
 # define DELTAE 		tmp->deltaE
 # define DELTANE 		tmp->deltaNE
 # define DP 			tmp->dp
-// # define X0 			map1->x3
-// # define X1 			map2->x3
-// # define Y0 			map1->y3
-// # define Y1 			map2->y3
+# define X0 			tab[0]
+# define X1 			tab[1]
+# define Y0 			tab[2]
+# define Y1 			tab[3]
+
+
 
 /*
 **	Structure
@@ -107,7 +109,8 @@ typedef struct			s_tmp
 	int 				dp;
 }						t_tmp;
 
-void	myseg_trace1(int X0, int X1, int Y0, int Y1, t_env *env);
+int 	**ft_int_to_tab(int x0, int x1, int y0, int y1);
+void	myseg_trace1(int *tab, t_env *env);
 // void	my_seg_trace(int x0, int y0, int x1, int y1, t_env *env);
 // void	my_seg_trace(t_map *map1, t_map *map2, t_env *env);
 

@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 19:49:10 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/15 23:28:16 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 19:52:55 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,7 @@ void	trace(t_map *begin, t_env *env)
 {
 	t_map	*map1;
 	t_map	*map2;
-	int		*tab[4];
-	tab[0] = &map1->x3;
-	tab[1] = &map2->x3;
-	tab[2] = &map1->y3;
-	tab[3] = &map2->y3;
-	printf("TAB=%d map1x3=%d\n", tab[0], &map1->x3 );
+	int tab[4];
 	map1 = begin;
 	while (map1)
 	{
@@ -33,14 +28,26 @@ void	trace(t_map *begin, t_env *env)
 				if (map1->x == map2->x)
 				{
 					if ((map1->line == map2->line + 1) || (map1->line == map2->line -1))
-						myseg_trace1(map1->x3, map2->x3, map1->y3, map2->y3, env);
+					{
+						tab[0] = map1->x3;
+						tab[1] = map2->x3;
+						tab[2] = map1->y3;
+						tab[3] = map1->y3;
+						myseg_trace1(tab, env);
 						// myseg_trace(map1, map2, env);
+					}
 				}
 				else if (map1->line == map2->line)
 				{
 					if ((map1->x == map2->x + 1) || (map1->x == map2->x -1))
-						myseg_trace1(map1->x3, map2->x3, map1->y3, map2->y3, env);
+					{
+						tab[0] = map1->x3;
+						tab[1] = map2->x3;
+						tab[2] = map1->y3;
+						tab[3] = map1->y3;
+						myseg_trace1(tab, env);
 						// myseg_trace(map1, map2, env);
+					}
 				}
 			}
 			map2 = map2->next;
@@ -50,6 +57,8 @@ void	trace(t_map *begin, t_env *env)
 	free(map1);
 	free(map2);
 }
+
+
 /*
 void	ft_init(t_map *map1, t_map *map2, t_tmp *tmp)
 {
@@ -66,3 +75,4 @@ void	ft_init(t_map *map1, t_map *map2, t_tmp *tmp)
 	DY = Y1 - Y0;
 }
 */
+//map1->x3, map1->y3, map2->x3, map2->y3

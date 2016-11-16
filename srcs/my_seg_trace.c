@@ -1,11 +1,10 @@
 #include "fdf.h"
 
-void	myseg_trace1(int X0, int X1, int Y0, int Y1, t_env *env)
+void	myseg_trace1(int *tab, t_env *env)
 {
 	t_tmp	*tmp;
 	
 	tmp = (t_tmp *)malloc(sizeof(t_tmp));
-
 	if (Y0 > Y1)
 	{
 		TP = X0;
@@ -20,7 +19,7 @@ void	myseg_trace1(int X0, int X1, int Y0, int Y1, t_env *env)
 	if (X1 >= X0)
 	{
 		if (DX >= DY)
-		{
+		{			
 			//cas1
 			DP = 2 * DY - DX;
 			DELTAE = 2 * DY;

@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 03:58:43 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/15 23:29:07 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 18:44:11 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	myseg_trace(t_map *map1, t_map *map2, t_env *env)
 	ft_init(map1, map2, tmp);
 	if (X1 >= X0)
 	{
+		printf("--trace.c_map->x3=%d\n", map1->x3);
 		if (DX >= DY)
 			ft_cas1(map1, map2, tmp, env);
 		else
@@ -47,6 +48,7 @@ void 	ft_cas1(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env)
 	{
 		if (DP <= 0)
 		{
+			printf("---cas1_map1->x3=%d\n", map1->x3);
 			DP = DP + DELTAE;
 			X++;
 		}
