@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 03:58:43 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 21:05:04 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 21:12:06 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	myseg_trace(int x0, int x1, int y0, int y1)
 {
 	t_tmp *tmp;
-	
+
 	tmp = (t_tmp *)malloc(sizeof(t_tmp));
 	if (y0 > y1)
 	{
@@ -45,7 +45,7 @@ void	myseg_trace(int x0, int x1, int y0, int y1)
 	free(tmp);
 }
 
-void 	ft_cas1(int x0, int x1, int y0, t_tmp *tmp)
+void	ft_cas1(int x0, int x1, int y0, t_tmp *tmp)
 {
 	DP = 2 * DY - DX;
 	DELTAE = 2 * DY;
@@ -95,7 +95,7 @@ void	ft_cas2(int x0, int y0, int y1, t_tmp *tmp)
 	}
 }
 
-void 	ft_cas3(int x0, int x1, int y0, t_tmp *tmp)
+void	ft_cas3(int x0, int x1, int y0, t_tmp *tmp)
 {
 	DP = 2 * DY - DX;
 	DELTAE = 2 * DY;

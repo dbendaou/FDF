@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 19:49:10 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 21:06:42 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 21:10:16 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ void	trace(t_map *begin)
 		{
 			if (map2 != map1)
 			{
-				if ((map1->x == map2->x &&((map1->line == map2->line + 1) || (map1->line == map2->line -1))))
-				{
-					// if ((map1->line == map2->line + 1) || (map1->line == map2->line -1))
-						myseg_trace(map1->x3, map2->x3, map1->y3, map2->y3);
-				}
+				if ((map1->x == map2->x && ((map1->line == map2->line + 1) ||
+					(map1->line == map2->line - 1))))
+					myseg_trace(map1->x3, map2->x3, map1->y3, map2->y3);
 				else if (map1->line == map2->line)
 				{
-					if ((map1->x == map2->x + 1) || (map1->x == map2->x -1))
+					if ((map1->x == map2->x + 1) || (map1->x == map2->x - 1))
 						myseg_trace(map1->x3, map2->x3, map1->y3, map2->y3);
 				}
 			}
