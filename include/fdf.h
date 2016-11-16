@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 20:32:40 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 21:03:39 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@
 # define DELTANE 		tmp->deltane
 # define DP 			tmp->dp
 
+# define GET_ENV		ft_create()
+# define ENV(R)			GET_ENV->R
+
 /*
 **	Structure
 */
@@ -107,11 +110,11 @@ typedef struct			s_tmp
 /*
 **	trace.c
 */
-void					myseg_trace(int X0, int X1, int Y0, int Y1, t_env *env);
-void 					ft_cas1(int X0, int X1, int Y0, t_tmp *tmp, t_env *env);
-void 					ft_cas2(int X0, int Y0, int Y1, t_tmp *tmp, t_env *env);
-void 					ft_cas3(int X0, int X1, int Y0, t_tmp *tmp, t_env *env);
-void 					ft_cas4(int X0, int X1, int Y0, t_tmp *tmp, t_env *env);
+void					myseg_trace(int X0, int X1, int Y0, int Y1);
+void 					ft_cas1(int X0, int X1, int Y0, t_tmp *tmp);
+void 					ft_cas2(int X0, int Y0, int Y1, t_tmp *tmp);
+void 					ft_cas3(int X0, int X1, int Y0, t_tmp *tmp);
+void 					ft_cas4(int X0, int X1, int Y0, t_tmp *tmp);
 
 /*
 **	Parser.c
@@ -145,7 +148,7 @@ void					ft_check(char *file);
 /*
 **	draw.c
 */
-void					trace(t_map *begin, t_env *env);
+void					trace(t_map *begin);
 
 int						ft_mouse_funct(int button, int x, int y, void *param);
 

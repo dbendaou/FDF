@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 17:43:00 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/15 17:09:17 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 20:47:29 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 
 t_env	*ft_create(void)
 {
-	t_env	*env;
+	static t_env	*env = NULL;
 
-	env = (t_env *)malloc(sizeof(t_env));
-	env->mlx = mlx_init();
-	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, TITLE);
+	if (env == NULL)
+	{
+		env = (t_env *)malloc(sizeof(t_env));
+		env->mlx = mlx_init();
+		env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, TITLE);
+	}
 	return (env);
 }
 

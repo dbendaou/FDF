@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 20:29:06 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 21:02:13 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(int ac, char **av)
 	map = ft_parser(&av[1]);
 	env = ft_create();
 	isometric(map);
-	trace(map, env);
+	trace(map);
 	ft_loop(*env);
 	return (0);
 }
