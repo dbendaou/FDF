@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 20:16:57 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 20:32:40 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 /*
 **	Constante
 */
-# define CTE_1 0.5
-# define CTE_2 0.5
-# define E_CTE 1
+# define CTE_1 			0.5
+# define CTE_2 			0.5
+# define E_CTE 			1
 
 /*
 **	Erreurs
@@ -67,15 +67,9 @@
 # define TP 			tmp->tp
 # define DX 			tmp->dx
 # define DY 			tmp->dy
-# define DELTAE 		tmp->deltaE
-# define DELTANE 		tmp->deltaNE
+# define DELTAE 		tmp->deltae
+# define DELTANE 		tmp->deltane
 # define DP 			tmp->dp
-// # define X0 			tab[0]
-// # define X1 			tab[1]
-// # define Y0 			tab[2]
-// # define Y1 			tab[3]
-
-
 
 /*
 **	Structure
@@ -99,29 +93,25 @@ typedef struct			s_map
 
 typedef struct			s_tmp
 {
-	int 				x;
-	int 				y;
-	int 				tp;
-	int 				dx;
-	int 				dy;
-	int 				deltaE;
-	int 				deltaNE;
-	int 				dp;
+	int					x;
+	int					y;
+	int					tp;
+	int					dx;
+	int					dy;
+	int					deltae;
+	int					deltane;
+	int					dp;
 }						t_tmp;
 
-
-void	myseg_trace1(int X0, int X1, int Y0, int Y1, t_env *env);
-// void	my_seg_trace(int x0, int y0, int x1, int y1, t_env *env);
-// void	my_seg_trace(t_map *map1, t_map *map2, t_env *env);
 
 /*
 **	trace.c
 */
-void	myseg_trace(int X0, int X1, int Y0, int Y1, t_env *env);
-void 	ft_cas1(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
-void 	ft_cas2(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
-void 	ft_cas3(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
-void 	ft_cas4(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env);
+void					myseg_trace(int X0, int X1, int Y0, int Y1, t_env *env);
+void 					ft_cas1(int X0, int X1, int Y0, t_tmp *tmp, t_env *env);
+void 					ft_cas2(int X0, int Y0, int Y1, t_tmp *tmp, t_env *env);
+void 					ft_cas3(int X0, int X1, int Y0, t_tmp *tmp, t_env *env);
+void 					ft_cas4(int X0, int X1, int Y0, t_tmp *tmp, t_env *env);
 
 /*
 **	Parser.c
@@ -156,9 +146,7 @@ void					ft_check(char *file);
 **	draw.c
 */
 void					trace(t_map *begin, t_env *env);
-void					ft_init(int X0, int X1, int Y0, int Y1, t_tmp *tmp);
 
-void					ft_pixel_put(t_map *map, t_env env);
 int						ft_mouse_funct(int button, int x, int y, void *param);
 
 #endif

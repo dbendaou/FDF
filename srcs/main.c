@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:13:57 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 05:59:02 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 20:29:06 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int		main(int ac, char **av)
 {
 	t_env	*env;
-	t_map 	*map;
-	
+	t_map	*map;
+
 	if (ac != 2 || !ft_strstr(av[1], ".fdf"))
 	{
 		ft_putstr(E_USAGE);
@@ -26,16 +26,13 @@ int		main(int ac, char **av)
 	env = ft_create();
 	isometric(map);
 	trace(map, env);
-	// mlx_put_image_to_window(env->mlx, env->win, &env->addr, 0 , 0);
 	ft_loop(*env);
 	return (0);
 }
 
-int 	ft_mouse_funct(int button, int x, int y, void *param)
+int		ft_mouse_funct(int button, int x, int y, void *param)
 {
 	param = NULL;
-
 	printf("bouton: %d\nx:%d y:%d\n", button, x, y);
 	return (0);
 }
-

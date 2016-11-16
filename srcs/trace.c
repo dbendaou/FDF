@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 03:58:43 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 20:20:58 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 20:32:18 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ void	myseg_trace(int X0, int X1, int Y0, int Y1, t_env *env)
 	if (X1 >= X0)
 	{
 		if (DX >= DY)
-			ft_cas1(X0, X1, Y0, Y1, tmp, env);
+			ft_cas1(X0, X1, Y0, tmp, env);
 		else
-			ft_cas2(X0, X1, Y0, Y1, tmp, env);
+			ft_cas2(X0, Y0, Y1, tmp, env);
 	}
 	else
 	{
 		if (DX >= DY)
-			ft_cas3(X0, X1, Y0, Y1, tmp, env);
+			ft_cas3(X0, X1, Y0, tmp, env);
 		else
-			ft_cas4(X0, X1, Y0, Y1, tmp, env);
+			ft_cas4(X0, X1, Y0, tmp, env);
 	}
 	free(tmp);
 }
 
-void 	ft_cas1(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env)
+void 	ft_cas1(int X0, int X1, int Y0, t_tmp *tmp, t_env *env)
 {
 	DP = 2 * DY - DX;
 	DELTAE = 2 * DY;
@@ -70,7 +70,7 @@ void 	ft_cas1(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env)
 	}
 }
 
-void	ft_cas2(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env)
+void	ft_cas2(int X0, int Y0, int Y1, t_tmp *tmp, t_env *env)
 {
 	DP = 2 * DX - DY;
 	DELTAE = 2 * DX;
@@ -95,7 +95,7 @@ void	ft_cas2(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env)
 	}
 }
 
-void 	ft_cas3(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env)
+void 	ft_cas3(int X0, int X1, int Y0, t_tmp *tmp, t_env *env)
 {
 	DP = 2 * DY - DX;
 	DELTAE = 2 * DY;
@@ -120,7 +120,7 @@ void 	ft_cas3(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env)
 	}
 }
 
-void	ft_cas4(int X0, int X1, int Y0, int Y1, t_tmp *tmp, t_env *env)
+void	ft_cas4(int X0, int X1, int Y0, t_tmp *tmp, t_env *env)
 {
 	DP = 2 * DX - DY;
 	DELTAE = 2 * DX;
