@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-void	myseg_trace1(int *tab, t_env *env)
+void	myseg_trace1(int X0, int X1, int Y0, int Y1, t_env *env)
 {
 	t_tmp	*tmp;
 	

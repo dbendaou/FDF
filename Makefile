@@ -6,7 +6,7 @@
 #    By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 16:16:05 by dbendaou          #+#    #+#              #
-#    Updated: 2016/11/16 18:25:37 by dbendaou         ###   ########.fr        #
+#    Updated: 2016/11/16 20:09:01 by dbendaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC_NAME	= 	main.c \
 				trace.c \
 				get_next_line.c \
 				my_seg_trace.c 
-
+				
 OBJ_NAME	=	$(SRC_NAME:.c=.o)
 OBJ_PATH	=	objs
 

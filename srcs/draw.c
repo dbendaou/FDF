@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/13 19:49:10 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 19:52:55 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/16 20:12:19 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	trace(t_map *begin, t_env *env)
 						tab[1] = map2->x3;
 						tab[2] = map1->y3;
 						tab[3] = map1->y3;
-						myseg_trace1(tab, env);
+						myseg_trace1(map1->x3, map2->x3, map1->y3, map2->y3, env);
 						// myseg_trace(map1, map2, env);
 					}
 				}
@@ -45,7 +45,7 @@ void	trace(t_map *begin, t_env *env)
 						tab[1] = map2->x3;
 						tab[2] = map1->y3;
 						tab[3] = map1->y3;
-						myseg_trace1(tab, env);
+						myseg_trace1(map1->x3, map2->x3, map1->y3, map2->y3, env);
 						// myseg_trace(map1, map2, env);
 					}
 				}
