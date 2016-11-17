@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 21:03:39 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/17 16:55:07 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,15 +106,14 @@ typedef struct			s_tmp
 	int					dp;
 }						t_tmp;
 
-
 /*
 **	trace.c
 */
-void					myseg_trace(int X0, int X1, int Y0, int Y1);
-void 					ft_cas1(int X0, int X1, int Y0, t_tmp *tmp);
-void 					ft_cas2(int X0, int Y0, int Y1, t_tmp *tmp);
-void 					ft_cas3(int X0, int X1, int Y0, t_tmp *tmp);
-void 					ft_cas4(int X0, int X1, int Y0, t_tmp *tmp);
+void					myseg_trace(int x0, int x1, int y0, int y1);
+void					ft_cas1(int x0, int x1, int y0, t_tmp *tmp);
+void					ft_cas2(int x0, int y0, int y1, t_tmp *tmp);
+void					ft_cas3(int x0, int x1, int y0, t_tmp *tmp);
+void					ft_cas4(int x0, int x1, int y0, t_tmp *tmp);
 
 /*
 **	Parser.c

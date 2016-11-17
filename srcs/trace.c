@@ -6,11 +6,19 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 03:58:43 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 21:12:06 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/17 17:05:32 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	int_swap(int *a, int *b)
+{
+	int tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
 void	myseg_trace(int x0, int x1, int y0, int y1)
 {
@@ -19,12 +27,14 @@ void	myseg_trace(int x0, int x1, int y0, int y1)
 	tmp = (t_tmp *)malloc(sizeof(t_tmp));
 	if (y0 > y1)
 	{
-		TP = x0;
-		x0 = x1;
-		x1 = TP;
-		TP = y0;
-		y0 = y1;
-		y1 = TP;
+		int_swap(&x0, &x1);
+		int_swap(&y0, &y1);
+		// TP = x0;
+		// x0 = x1;
+		// x1 = TP;
+		// TP = y0;
+		// y0 = y1;
+		// y1 = TP;
 	}
 	DX = (x1 >= x0) ? x1 - x0 : x0 - x1;
 	DY = y1 - y0;
