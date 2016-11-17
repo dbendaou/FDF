@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 05:58:52 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/17 17:08:55 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 /*
 **	Constante
 */
-# define CTE_1 0.5
-# define CTE_2 0.5
-# define E_CTE 1
+# define CTE_1 			0.5
+# define CTE_2 			0.5
+# define E_CTE 			1
 
 /*
 **	Erreurs
@@ -67,13 +67,12 @@
 # define TP 			tmp->tp
 # define DX 			tmp->dx
 # define DY 			tmp->dy
-# define DELTAE 		tmp->deltaE
-# define DELTANE 		tmp->deltaNE
+# define DELTAE 		tmp->deltae
+# define DELTANE 		tmp->deltane
 # define DP 			tmp->dp
-# define X0 			map1->x3
-# define X1 			map2->x3
-# define Y0 			map1->y3
-# define Y1 			map2->y3
+
+# define GET_ENV		ft_create()
+# define ENV(R)			GET_ENV->R
 
 /*
 **	Structure
@@ -82,11 +81,6 @@ typedef struct			s_env
 {
 	void				*win;
 	void				*mlx;
-	void				*image;
-	char				*addr;
-	int					bits_per_pixel;
-	int					size_line;
-	int					endian;
 }						t_env;
 
 typedef struct			s_map
@@ -102,21 +96,38 @@ typedef struct			s_map
 
 typedef struct			s_tmp
 {
-	int 				x;
-	int 				y;
-	int 				tp;
-	int 				dx;
-	int 				dy;
-	int 				deltaE;
-	int 				deltaNE;
-	int 				dp;
+	int					x;
+	int					y;
+	int					tp;
+	int					dx;
+	int					dy;
+	int					deltae;
+	int					deltane;
+	int					dp;
 }						t_tmp;
 
-void	myseg_trace(t_map *map1, t_map *map2, t_env *env);
-void 	ft_cas1(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
-void 	ft_cas2(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
-void 	ft_cas3(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
-void 	ft_cas4(t_map *map1, t_map *map2, t_tmp *tmp, t_env *env);
+/*
+**	mlx.c
+*/
+int						ft_key_funct(int keycode);
+void					ft_loop(t_env env);
+t_env					*ft_create(void);
+int						ft_color(int value);
+
+/*
+**	draw.c
+*/
+void					trace(t_map *begin);
+void					myseg_trace(int x0, int x1, int y0, int y1);
+void					int_swap(int *a, int *b);
+
+/*
+**	trace.c
+*/
+void					ft_cas1(int x0, int x1, int y0, t_tmp *tmp);
+void					ft_cas2(int x0, int y0, int y1, t_tmp *tmp);
+void					ft_cas3(int x0, int x1, int y0, t_tmp *tmp);
+void					ft_cas4(int x0, int x1, int y0, t_tmp *tmp);
 
 /*
 **	Parser.c
@@ -135,25 +146,8 @@ int						get_max_size(t_map *map);
 int						list_len(t_map *map);
 
 /*
-**	mlx.c
-*/
-int						ft_key_funct(int keycode);
-void					ft_loop(t_env env);
-t_env					*ft_create(void);
-int						ft_color(int value);
-
-/*
 **	check.c
 */
 void					ft_check(char *file);
-
-/*
-**	draw.c
-*/
-void					trace(t_map *begin, t_env *env);
-void					ft_init(t_map *map1, t_map *map2, t_tmp *tmp);
-
-void					ft_pixel_put(t_map *map, t_env env);
-int						ft_mouse_funct(int button, int x, int y, void *param);
 
 #endif

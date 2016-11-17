@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 17:43:00 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 06:00:25 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/17 17:13:51 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 
 t_env	*ft_create(void)
 {
-	t_env	*env;
+	static t_env	*env = NULL;
 
-	env = (t_env *)malloc(sizeof(t_env));
-	env->mlx = mlx_init();
-	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, TITLE);
-	// env->image = mlx_new_image(env->mlx, WIDTH, HEIGHT);
-	// env->addr = mlx_get_data_addr(env->image, &env->bits_per_pixel,
-		// &env->size_line, &env->endian);
-
+	if (env == NULL)
+	{
+		env = (t_env *)malloc(sizeof(t_env));
+		env->mlx = mlx_init();
+		env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, TITLE);
+	}
 	return (env);
 }
 
@@ -36,7 +35,6 @@ t_env	*ft_create(void)
 
 void	ft_loop(t_env env)
 {
-	mlx_mouse_hook(env.win, ft_mouse_funct, env.mlx);
 	mlx_key_hook(env.win, ft_key_funct, env.mlx);
 	mlx_loop(env.mlx);
 }
@@ -64,6 +62,9 @@ int		ft_color(int value)
 int		ft_key_funct(int keycode)
 {
 	if (keycode == 53)
+	{
+		ft_putendl("Good bye ...");
 		exit(0);
+	}
 	return (0);
 }

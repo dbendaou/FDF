@@ -6,7 +6,7 @@
 #    By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 16:16:05 by dbendaou          #+#    #+#              #
-#    Updated: 2016/11/14 05:33:32 by dbendaou         ###   ########.fr        #
+#    Updated: 2016/11/16 20:30:57 by dbendaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,8 @@ SRC_NAME	= 	main.c \
 				check.c \
 				draw.c \
 				trace.c \
-				get_next_line.c
+				get_next_line.c \
 				
-
 OBJ_NAME	=	$(SRC_NAME:.c=.o)
 OBJ_PATH	=	objs
 

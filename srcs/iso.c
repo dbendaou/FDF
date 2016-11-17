@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/01 20:05:33 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/14 01:11:22 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/15 17:34:48 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	isometric(t_map *map)
 	int		size;
 
 	size = get_echelle(map);
-	printf("size=%d\n", size);
 	tmp = map;
 	while (tmp)
 	{
@@ -77,7 +76,7 @@ int		get_max_size(t_map *map)
 		tmp = tmp->next;
 	}
 	amplitude = max - min;
-	printf("amplitude = %d\n", amplitude);
+	free(tmp);
 	return (amplitude);
 }
 
@@ -98,6 +97,5 @@ int		list_len(t_map *map)
 		i++;
 	}
 	free(tmp);
-	printf("LIST LEN = %d\n", i);
 	return (i);
 }
