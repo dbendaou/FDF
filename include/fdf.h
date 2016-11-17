@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:15:38 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/17 16:55:07 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/17 17:08:55 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,23 @@ typedef struct			s_tmp
 }						t_tmp;
 
 /*
+**	mlx.c
+*/
+int						ft_key_funct(int keycode);
+void					ft_loop(t_env env);
+t_env					*ft_create(void);
+int						ft_color(int value);
+
+/*
+**	draw.c
+*/
+void					trace(t_map *begin);
+void					myseg_trace(int x0, int x1, int y0, int y1);
+void					int_swap(int *a, int *b);
+
+/*
 **	trace.c
 */
-void					myseg_trace(int x0, int x1, int y0, int y1);
 void					ft_cas1(int x0, int x1, int y0, t_tmp *tmp);
 void					ft_cas2(int x0, int y0, int y1, t_tmp *tmp);
 void					ft_cas3(int x0, int x1, int y0, t_tmp *tmp);
@@ -132,23 +146,8 @@ int						get_max_size(t_map *map);
 int						list_len(t_map *map);
 
 /*
-**	mlx.c
-*/
-int						ft_key_funct(int keycode);
-void					ft_loop(t_env env);
-t_env					*ft_create(void);
-int						ft_color(int value);
-
-/*
 **	check.c
 */
 void					ft_check(char *file);
-
-/*
-**	draw.c
-*/
-void					trace(t_map *begin);
-
-int						ft_mouse_funct(int button, int x, int y, void *param);
 
 #endif

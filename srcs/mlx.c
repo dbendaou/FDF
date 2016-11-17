@@ -6,7 +6,7 @@
 /*   By: dbendaou <dbendaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 17:43:00 by dbendaou          #+#    #+#             */
-/*   Updated: 2016/11/16 20:47:29 by dbendaou         ###   ########.fr       */
+/*   Updated: 2016/11/17 17:13:51 by dbendaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_env	*ft_create(void)
 
 void	ft_loop(t_env env)
 {
-	mlx_mouse_hook(env.win, ft_mouse_funct, env.mlx);
 	mlx_key_hook(env.win, ft_key_funct, env.mlx);
 	mlx_loop(env.mlx);
 }
